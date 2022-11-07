@@ -13,3 +13,6 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# swag生成的代码，使用swag init可生成无需上传git
+docs
