@@ -1,18 +1,16 @@
-package httputil
+package response
 
 import "github.com/gin-gonic/gin"
 
-// NewError example
-func NewError(ctx *gin.Context, status int, err error) {
-	er := HTTPError{
+func ResponseError(ctx *gin.Context, status int, err error) {
+	er := ErrorBody{
 		Code:    status,
 		Message: err.Error(),
 	}
 	ctx.JSON(status, er)
 }
 
-// HTTPError example
-type HTTPError struct {
+type ErrorBody struct {
 	Code    int    `json:"code" example:"400"`
 	Message string `json:"message" example:"status bad request"`
 }
