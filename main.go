@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/gin-gonic/gin"
 
@@ -19,5 +20,5 @@ func main() {
 	}).Init()
 
 	server := config.Server
-	r.Run(fmt.Sprintf("%s:%d", server.ListenIp, server.ListenPort))
+	log.Fatal(r.Run(fmt.Sprintf("%s:%d", server.ListenIp, server.ListenPort)))
 }
