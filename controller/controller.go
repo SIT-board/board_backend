@@ -1,8 +1,9 @@
 package controller
 
 import (
-	"github.com/SIT-board/board_backend/global"
 	"github.com/gin-gonic/gin"
+
+	"github.com/SIT-board/board_backend/global"
 )
 
 type Controller struct {

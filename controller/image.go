@@ -3,10 +3,11 @@ package controller
 import (
 	"net/http"
 
+	"github.com/gin-gonic/gin"
+
 	"github.com/SIT-board/board_backend/global"
 	"github.com/SIT-board/board_backend/response"
 	"github.com/SIT-board/board_backend/service"
-	"github.com/gin-gonic/gin"
 )
 
 type ImageController struct {
