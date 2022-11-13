@@ -1,5 +1,4 @@
-# board_backend
-up在线协作白板后端的实现
+SIT-board 在线协作白板后端的实现
 
 项目的服务端代码，由于项目架构设计之初希望大部分功能尽可能在客户端实现，使客户端实现直接的分布式通信，服务器不过多参与其过程。
 
@@ -23,7 +22,7 @@ go build -o server main.go
 go build -o server.exe main.go
 ./server.exe
 ```
-应用会默认监听  8080 端口，默认保存文件的目录是 ./files 。如需修改配置，请在 [config.yaml](config.yaml)中修改
+应用会默认监听 `8080` 端口，默认保存文件的目录是 `board_backend/files` 。如需修改配置，请在 [config.yaml](config.yaml) 中修改
 
 # API 文档
 ## 上传文件
