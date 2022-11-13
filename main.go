@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 
@@ -10,10 +11,16 @@ import (
 	"github.com/SIT-board/board_backend/global"
 )
 
-func main() {
-	r := gin.Default()
+var configFile string
 
-	config := global.GetDefaultConfig()
+func init() {
+	flag.StringVar(&configFile, "conf", "config.yaml", "config path ,ag : go run main -f config.yaml")
+}
+
+func main() {
+	flag.Parse()
+	r := gin.Default()
+	config := global.GetConfig(configFile)
 	(&controller.Controller{
 		Engine: r,
 		Config: config,

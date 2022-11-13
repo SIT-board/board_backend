@@ -1,7 +1,10 @@
 package global
 
 import (
-	"sync"
+	"log"
+	"os"
+
+	"gopkg.in/yaml.v3"
 )
 
 type ServerConfig struct {
@@ -19,10 +22,18 @@ type Config struct {
 	File   FileConfig   `yaml:"file"`
 }
 
-var (
-	config     Config
-	configOnce sync.Once
-)
+func GetConfig(filePath string) *Config {
+	file, err := os.ReadFile(filePath)
+	if err != nil {
+		log.Fatal(err)
+	}
+	cfg := &Config{}
+	if err = yaml.Unmarshal(file, cfg); err != nil {
+		log.Fatal(err)
+	}
+	log.Println(cfg)
+	return cfg
+}
 
 func GetDefaultConfig() *Config {
 	return &Config{
