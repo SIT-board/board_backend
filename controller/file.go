@@ -24,6 +24,10 @@ func (controller *AttachmentController) Init() {
 
 }
 
+type uploadResp struct {
+	Url string `json:"url"`
+}
+
 func (controller *AttachmentController) Upload(ctx *gin.Context) {
 	file, err := ctx.FormFile("file")
 	if err != nil {
@@ -35,7 +39,7 @@ func (controller *AttachmentController) Upload(ctx *gin.Context) {
 		response.ResponseError(ctx, http.StatusBadRequest, err)
 		return
 	}
-	fileName = fmt.Sprintf("%s/file/download/%s", controller.Config.Host, fileName)
+	resp := uploadResp{Url: fmt.Sprintf("%s/file/download/%s", controller.Config.Host, fileName)}
 
-	response.ResponseSuccess(ctx, fileName)
+	response.ResponseSuccess(ctx, resp)
 }
