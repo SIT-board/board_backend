@@ -28,7 +28,7 @@ go build -o server.exe main.go
 # API 文档
 ## 上传文件
 ### 请求
-```json
+```
 POST /file/upload
 Content-Type: multipart/form-data; boundary=<Boundary>
 
@@ -50,6 +50,6 @@ Content-Disposition: form-data; name="file";filename="filename"
 - <filename> ： form 表单中的filename
 
 ## 下载文件
-```json
+```
 GET /file/download/<filename>
 ```
