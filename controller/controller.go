@@ -11,10 +11,10 @@ type Controller struct {
 	Config *global.Config
 }
 
-func (r *Controller) Init() {
-	imageController := &ImageController{
-		Group:       r.Engine.Group("/image"),
-		ImageConfig: &r.Config.Image,
+func (controller *Controller) Init() {
+	attachment := &AttachmentController{
+		Group:  controller.Engine.Group("/file"),
+		Config: &controller.Config.File,
 	}
-	imageController.Init()
+	attachment.Init()
 }

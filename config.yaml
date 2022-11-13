@@ -2,6 +2,6 @@ server:
   listen-ip: 0.0.0.0
   listen-port: 8080
 
-image:
-  raw-directory: 'images/raw'
-  thumbnail-directory: 'images/thumbnail'
+attachment:
+  directory: 'files'
+  host: 'http://localhost:8080'

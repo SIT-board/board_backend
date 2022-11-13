@@ -9,14 +9,14 @@ type ServerConfig struct {
 	ListenPort int    `yaml:"listen-port"`
 }
 
-type ImageConfig struct {
-	RawDirectory       string `yaml:"raw-directory"`
-	ThumbnailDirectory string `yaml:"thumbnail-directory"`
+type FileConfig struct {
+	Directory string `yaml:"directory"`
+	Host      string `yaml:"host"`
 }
 
 type Config struct {
 	Server ServerConfig `yaml:"server"`
-	Image  ImageConfig  `yaml:"image"`
+	File   FileConfig   `yaml:"file"`
 }
 
 var (
@@ -30,9 +30,9 @@ func GetDefaultConfig() *Config {
 			ListenIp:   "127.0.0.1",
 			ListenPort: 8080,
 		},
-		Image: ImageConfig{
-			RawDirectory:       "images/raw",
-			ThumbnailDirectory: "images/thumbnail",
+		File: FileConfig{
+			Directory: "files",
+			Host:      "http://localhost:8080",
 		},
 	}
 }
